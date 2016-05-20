@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en>
+<head>
+  <meta charset="UTF-8"/>
+  <title>板块列表</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron">
+          <center><h1>python部落论坛</h1></center>
+        </div> 
+        {% for b in blocks  %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a href="{% url 'article_list' b.id  %}" style="font-size: 18px">{{ b.name }}</a>
+	        <span class="pull-right">管理员: {{ b.owner }}</span>
+	      </div>
+          <div class="panel-body">
+            <span> {{ b.desc }}</span>
+          </div>
+        </div>     
+	    {% endfor  %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
